@@ -1,0 +1,96 @@
+BROKEN_TEST
+<div id="objective_contents" class="objective-settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <div class="flex-container alignitemscenter margin0">
+                <b data-i18n="ext_obj_title">Objective</b>
+                <i id="objectiveExtensionPopoutButton" class="fa-solid fa-window-restore menu_button margin0"></i>
+            </div>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <div id="objectiveExtensionDrawerContents">
+                <label for="objective-text"><small>Enter an objective and generate tasks. The AI will attempt to complete tasks autonomously</small></label>
+                <textarea id="objective-text" type="text" class="text_pole textarea_compact" rows="4"></textarea>
+                <div class="objective-import-editor">
+                    <!-- 工具栏 -->
+                    <div class="editor-toolbar" style="margin-bottom: 5px;">
+                        <button id="editor-indent" class="menu_button" title="增加缩进 (Tab)">
+                            <i class="fa-solid fa-indent"></i> 缩进
+                        </button>
+                        <button id="editor-outdent" class="menu_button" title="减少缩进 (Shift+Tab)">
+                            <i class="fa-solid fa-outdent"></i> 取消缩进
+                        </button>
+                        <button id="editor-expand-all" class="menu_button" title="展开所有层级">
+                            <i class="fa-solid fa-expand"></i> 展开
+                        </button>
+                        <button id="editor-collapse-all" class="menu_button" title="折叠所有层级">
+                            <i class="fa-solid fa-compress"></i> 折叠
+                        </button>
+                        <!-- 新增：从文本生成按钮 -->
+                        <button id="editor-generate-from-text" class="menu_button" title="从当前文本生成任务树" style="background-color: #4CAF50; color: white;">
+                            <i class="fa-solid fa-diagram-project"></i> 从文本生成
+                        </button>
+                        <span style="float: right;">
+                            <label>
+                                <input type="checkbox" id="editor-use-tabs" checked> 使用 Tab
+                            </label>
+                        </span>
+                    </div>
+
+                    <!-- 编辑器区域 -->
+                    <textarea 
+                        id="objective-import-text" 
+                        class="text_pole textarea_compact" 
+                        rows="10" 
+                        spellcheck="false"
+                        style="font-family: 'Courier New', monospace; white-space: pre; tab-size: 4;"
+                    ></textarea>
+                    
+                    <!-- 缩进提示 - 修改提示文字 -->
+                    <small style="color: #666; display: flex; justify-content: space-between;">
+                        <span>💡 提示: Tab 增加缩进, Shift+Tab 减少缩进</span>
+                        <span style="color: #4CAF50;">✨ 点击"从文本生成"按钮创建任务树</span>
+                    </small>
+                </div>
+
+                <div class="objective_block flex-container">
+                    <input id="objective-generate" class="menu_button" type="submit" value="Auto-Generate Tasks" />
+                    <input id="objective-clear" class="menu_button" type="submit" value="Clear Tasks" />
+                    <label class="checkbox_label"><input id="objective-hide-tasks" type="checkbox"> Hide Tasks</label>
+                </div>
+                <div id="objective-parent" class="objective_block flex-container">
+                    <i class="objective-task-button fa-solid fa-circle-left fa-2x" title="Go to Parent"></i>
+                    <small>Go to parent task</small>
+                </div>
+
+                <div id="objective-tasks"> </div>
+                <div class="objective_block margin-bot-10px">
+                    <div class="objective_block objective_block_control flex1 flexFlowColumn">
+                        <label for="objective-chat-depth">Position in Chat</label>
+                        <input id="objective-chat-depth" class="text_pole widthUnset" type="number" min="0" max="99" />
+                    </div>
+                    <br>
+                    <div class="objective_block objective_block_control flex1">
+                        <label for="objective-check-frequency">Task Check Frequency</label>
+                        <input id="objective-check-frequency" class="text_pole widthUnset" type="number" min="0" max="99" />
+                        <small>(0 = disabled)</small>
+                    </div>
+                    <br>
+                    <div class="objective_block objective_block_control flex1">
+                        <label for="objective-generate-frequency">Auto-Generate Frequency</label>
+                        <input id="objective-generate-frequency" class="text_pole widthUnset" type="number" min="0" max="99" />
+                        <small>(0 = disabled)</small>
+                    </div>
+                </div>
+                <span> Messages until next AI task completion check <span id="objective-counter">0</span></span>
+                <br>
+                <span> Messages until next AI tasks regeneration <span id="generate-counter">0</span></span>
+                <div class="objective_block flex-container">
+                    <input id="objective_prompt_edit" class="menu_button" type="submit" value="Edit Prompts" />
+                </div>
+                <hr class="sysHR">
+            </div>
+        </div>
+    </div>
+</div>

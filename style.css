@@ -1,0 +1,303 @@
+#objective-counter {
+    font-weight: 600;
+    color: orange;
+}
+
+#generate-counter {
+    font-weight: 600;
+    color: orange;
+}
+
+.objective_block {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    flex-wrap: wrap;
+}
+
+.objective_prompt_block {
+    display: flex;
+    align-items: baseline;
+    column-gap: 5px;
+    flex-wrap: wrap;
+}
+
+.objective_block_control {
+    align-items: baseline;
+}
+
+.objective_block_control small,
+.objective_block_control label {
+    width: max-content;
+}
+
+.objective-task-button {
+    margin: 0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    opacity: 0.7;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.objective-task-button:hover {
+    opacity: 1;
+}
+
+[id^=objective-task-delete-] {
+    color: #da3f3f;
+}
+
+#objective-tasks span {
+    margin: unset;
+    margin-bottom: 5px !important;
+}
+
+#objectiveExtensionPopout {
+    top: unset;
+}
+
+#objectiveExtensionPopout #objectiveExtensionDrawerContents {
+    margin-top: 20px;
+}
+
+.objective_prompt_modal textarea {
+    max-height: 50vh;
+    max-height: 50dvh;
+    resize: vertical;
+}
+
+/* 原有的样式保持不变，在文件末尾添加以下新样式 */
+
+/* ========== 新增样式 ========== */
+
+/* 任务导入编辑器容器 */
+.objective-import-editor {
+    display: block;
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: var(--blockBorderRadius, 5px);
+    background-color: var(--SmartThemeBgColor);
+}
+
+/* 编辑器工具栏 */
+.objective-import-editor .editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+/* 编辑器文本区域 */
+#objective-import-text {
+    display: block !important;
+    width: 100% !important;
+    min-height: 200px;
+    background-color: var(--SmartThemeInputBgColor);
+    color: var(--SmartThemeBodyColor);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: var(--blockBorderRadius, 5px);
+    font-family: 'Courier New', monospace;
+    white-space: pre;
+    tab-size: 4;
+    padding: 8px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+/* 从文本生成按钮 - 绿色主题 */
+#editor-generate-from-text {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    border: 1px solid #45a049 !important;
+    transition: background-color 0.3s;
+}
+
+#editor-generate-from-text:hover {
+    background-color: #45a049 !important;
+}
+
+#editor-generate-from-text i {
+    margin-right: 3px;
+}
+
+/* 编辑器提示文字 */
+.objective-import-editor small {
+    display: block;
+    margin-top: 8px;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* 提示文字中的绿色强调 */
+.objective-import-editor small span:last-child {
+    color: #4CAF50;
+}
+
+/* 工具栏按钮通用样式 */
+.objective-import-editor .editor-toolbar button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background-color: var(--SmartThemeButtonBgColor);
+    color: var(--SmartThemeButtonTextColor);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: var(--blockBorderRadius, 3px);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.objective-import-editor .editor-toolbar button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.objective-import-editor .editor-toolbar button i {
+    font-size: 14px;
+}
+
+/* 使用 Tab 复选框样式 */
+.objective-import-editor .editor-toolbar label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--SmartThemeBodyColor);
+    cursor: pointer;
+}
+
+.objective-import-editor .editor-toolbar input[type="checkbox"] {
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+/* 导入预览区域（如果还有的话） */
+#objective-import-preview {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px dashed var(--SmartThemeBorderColor);
+    border-radius: var(--blockBorderRadius, 5px);
+}
+
+/* 预览区域按钮组 */
+#objective-import-preview .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+/* 清空复选框样式 */
+#objective-import-clear {
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+/* 确保所有元素都使用酒馆的变量 */
+.objective-import-editor,
+.objective-import-editor * {
+    box-sizing: border-box;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .objective-import-editor .editor-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .objective-import-editor .editor-toolbar button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .objective-import-editor .editor-toolbar span {
+        float: none !important;
+        text-align: center;
+        margin-top: 5px;
+    }
+}
+
+/* 任务树预览样式（用于确认对话框） */
+.task-preview {
+    font-family: 'Courier New', monospace;
+    background-color: var(--SmartThemeInputBgColor);
+    padding: 10px;
+    border-radius: var(--blockBorderRadius, 5px);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.task-preview-item {
+    margin: 2px 0;
+    line-height: 1.5;
+}
+
+.task-preview-item.level-0 { margin-left: 0; }
+.task-preview-item.level-1 { margin-left: 20px; }
+.task-preview-item.level-2 { margin-left: 40px; }
+.task-preview-item.level-3 { margin-left: 60px; }
+.task-preview-item.level-4 { margin-left: 80px; }
+
+.task-preview-bullet {
+    color: #4CAF50;
+    margin-right: 5px;
+}
+
+/* 任务轮数显示 */
+.task-rounds-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 10px;
+}
+
+.task-rounds-control input {
+    width: 60px;
+    padding: 2px 4px;
+    background-color: var(--SmartThemeInputBgColor);
+    color: var(--SmartThemeBodyColor);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 3px;
+}
+
+.task-current-rounds {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* 进度条样式（如果实现） */
+.task-progress-container {
+    width: 150px;
+    height: 20px;
+    background-color: var(--SmartThemeInputBgColor);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.task-progress-bar {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.task-progress-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
